@@ -12,6 +12,10 @@ export default async function Home() {
   return (
     <main className={styles.container}>
       <h1 className={styles.title}>Blog de Tecnologia</h1>
+
+      <p className={styles.subtitle}>
+        Explorando o universo do desenvolvimento front-end, arquitetura de software e as melhores práticas para construir aplicações web modernas e otimizadas.
+      </p>
       
       <div className={styles.grid}>
         {artigos.map((artigo) => (
@@ -23,7 +27,7 @@ export default async function Home() {
             </h2>
             <p className={styles.cardDescription}>{artigo.description}</p>
             <div className={styles.cardMeta}>
-              <span>Por {artigo.author}</span>
+              <span className={styles.author}>{artigo.author}</span>
               <span>{artigo.date}</span>
             </div>
           </article>

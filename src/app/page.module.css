@@ -1,43 +1,107 @@
 .container {
-  max-width: 800px;
+  max-width: 1000px;
   margin: 0 auto;
-  padding: 4rem 2rem;
+  padding: 5rem 2rem;
 }
 
 .title {
-  font-size: 2.5rem;
-  margin-bottom: 2rem;
+  font-size: 3.5rem;
+  font-weight: 800;
   text-align: center;
+  margin-bottom: 1.5rem;
+  background: linear-gradient(to right, #818cf8, #c084fc, #22d3ee);
+  -webkit-background-clip: text;
+  color: transparent;
+  letter-spacing: -1px;
+}
+
+.subtitle {
+  text-align: center;
+  font-size: 1.25rem;
+  color: #94a3b8;
+  max-width: 600px;
+  margin: 0 auto 4rem auto; /* Centraliza o bloco e adiciona o espaço inferior de 4rem */
+  line-height: 1.6;
+  font-weight: 400;
 }
 
 .grid {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 2rem;
 }
 
 .card {
-  background: white;
-  padding: 1.5rem;
-  border-radius: 8px;
-  border: 1px solid #e5e7eb;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  background: rgba(30, 41, 59, 0.4);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  padding: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Borda superior invisível que aparece no hover */
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(to right, #818cf8, #c084fc);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  border-color: rgba(129, 140, 248, 0.3);
+  background: rgba(30, 41, 59, 0.6);
+}
+
+.card:hover::before {
+  opacity: 1;
 }
 
 .cardTitle {
   font-size: 1.5rem;
-  margin-bottom: 0.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  line-height: 1.3;
+}
+
+.cardTitle a {
+  color: #f8fafc;
+}
+
+.cardTitle a:hover {
+  color: #818cf8;
 }
 
 .cardDescription {
-  color: #4b5563;
-  margin-bottom: 1rem;
+  color: #94a3b8;
+  font-size: 1rem;
+  margin-bottom: 2.5rem;
+  flex-grow: 1;
+  line-height: 1.6;
 }
 
 .cardMeta {
-  font-size: 0.875rem;
-  color: #6b7280;
-  margin-top: 1rem;
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  font-size: 0.875rem;
+  color: #64748b;
+  font-weight: 500;
+}
+
+.author {
+  color: #cbd5e1;
 }

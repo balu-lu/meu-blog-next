@@ -46,14 +46,15 @@ export default async function ArtigoPage({ params }: Props) {
   return (
     <main className={styles.container}>
       <Link href="/" className={styles.backLink}>
-        Voltar para o início
+        &larr; Voltar
       </Link>
       
-      <article>
+      <article className={styles.articleWrapper}>
         <header className={styles.header}>
           <h1 className={styles.title}>{artigo.title}</h1>
           <div className={styles.meta}>
-            Publicado por <strong>{artigo.author}</strong> em {artigo.date}
+            <strong className={styles.authorTag}>{artigo.author}</strong>
+            <strong>{artigo.date}</strong>
           </div>
         </header>
         
