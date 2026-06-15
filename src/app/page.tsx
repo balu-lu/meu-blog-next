@@ -17,7 +17,7 @@ export default async function Home() {
         Explorando o universo do desenvolvimento front-end, arquitetura de software e as melhores práticas para construir aplicações web modernas e otimizadas.
       </p>
       
-      <div className={styles.grid}>
+      <div id='artigos' className={styles.grid}>
         {artigos.map((artigo) => (
           <article key={artigo.slug} className={styles.card}>
             <h2 className={styles.cardTitle}>

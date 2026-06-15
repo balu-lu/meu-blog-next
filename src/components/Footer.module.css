@@ -1,0 +1,18 @@
+.footer {
+  margin-top: auto;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 3rem 2rem;
+  text-align: center;
+  background-color: #020617;
+}
+
+.texto {
+  color: #64748b;
+  font-size: 0.875rem;
+  margin-bottom: 0.5rem;
+}
+
+.destaque {
+  color: #818cf8;
+  font-weight: 600;
+}
