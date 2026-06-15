@@ -5,63 +5,63 @@ import { Metadata } from 'next';
 import styles from './page.module.css';
 
 type Props = {
-  params: Promise<{ slug: string }>;
+    params: Promise<{ slug: string }>;
 };
 
 // 1. Gera as rotas estáticas durante o build (SSG)
 export async function generateStaticParams() {
-  const artigos = await getArtigos();
-  
-  return artigos.map((artigo) => ({
-    slug: artigo.slug,
-  }));
+    const artigos = await getArtigos();
+
+    return artigos.map((artigo) => ({
+        slug: artigo.slug,
+    }));
 }
 
 // 2. Gera o SEO Dinâmico
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { slug } = await params;
-  const artigo = await getArtigoBySlug(slug);
+    const { slug } = await params;
+    const artigo = await getArtigoBySlug(slug);
 
-  if (!artigo) {
+    if (!artigo) {
+        return {
+            title: 'Artigo não encontrado',
+        };
+    }
+
     return {
-      title: 'Artigo não encontrado',
+        title: `${artigo.title} | Blog de Tecnologia`,
+        description: artigo.description,
     };
-  }
-
-  return {
-    title: `${artigo.title} | Blog de Tecnologia`,
-    description: artigo.description,
-  };
 }
 
 // 3. Renderiza a página do artigo
 export default async function ArtigoPage({ params }: Props) {
-  const { slug } = await params;
-  const artigo = await getArtigoBySlug(slug);
+    const { slug } = await params;
+    const artigo = await getArtigoBySlug(slug);
 
-  if (!artigo) {
-    notFound();
-  }
+    if (!artigo) {
+        notFound();
+    }
 
-  return (
-    <main className={styles.container}>
-      <Link href="/" className={styles.backLink}>
-        &larr; Voltar
-      </Link>
-      
-      <article className={styles.articleWrapper}>
-        <header className={styles.header}>
-          <h1 className={styles.title}>{artigo.title}</h1>
-          <div className={styles.meta}>
-            <strong className={styles.authorTag}>{artigo.author}</strong>
-            <strong>{artigo.date}</strong>
-          </div>
-        </header>
-        
-        <div className={styles.content}>
-          {artigo.content}
-        </div>
-      </article>
-    </main>
-  );
+    return (
+        <main className={styles.container}>
+            <Link href="/" className={styles.backLink}>
+                &larr; Voltar
+            </Link>
+
+            <article className={styles.articleWrapper}>
+                <header className={styles.header}>
+                    <h1 className={styles.title}>{artigo.title}</h1>
+                    <div className={styles.meta}>
+                        <strong className={styles.authorTag}>
+                            {artigo.author}
+                        </strong>
+                        <strong>{artigo.date}</strong>
+                    </div>
+                </header>
+
+                <div className={styles.content}>{artigo.content}</div>
+            </article>
+        </main>
+    );
 }
