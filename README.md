@@ -1,36 +1,54 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# TechBlog | Portal de Tecnologia
 
-## Getting Started
+Este projeto é uma aplicação de blog desenvolvida com Next.js 15 (App Router), focada em performance, SEO dinâmico e boas práticas de arquitetura de software com Server Components.
 
-First, run the development server:
+## Funcionalidades
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- **Roteamento Dinâmico:** Artigos renderizados dinamicamente através de slugs.
+- **Data Fetching:** Utilização de dados mockados (JSON local) com simulação de delay para ambiente assíncrono.
+- **SEO Dinâmico:** Implementação da função `generateMetadata` para otimização de busca por página.
+- **Arquitetura Moderna:** Uso de Server Components para renderização estática (SSG) no build.
+- **UX/UI Rebuscado:** Interface com design moderno, utilizando Glassmorphism e transições suaves.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Tecnologias Utilizadas
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- Next.js 15
+- React
+- TypeScript
+- CSS Modules
+- Prettier (Padronização de 4 espaços)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Como Instalar e Executar
 
-## Learn More
+1. **Clone o repositório:**
+   ```bash
+   git clone [https://github.com/SEU-USUARIO/meu-blog-next.git](https://github.com/SEU-USUARIO/meu-blog-next.git)
+   ```
+2. **Instale as dependências:**
 
-To learn more about Next.js, take a look at the following resources:
+  ```bash
+  npm install
+  ```
+3. **Execute o servidor de desenvolvimento:**
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+  ```bash
+  npm run dev
+  ```
+4. **Acesse a aplicação:**
+  Abra http://localhost:3000 no seu navegador.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Manutenção de Código
+O projeto possui integração com ESLint e Prettier para garantir a qualidade do código.
 
-## Deploy on Vercel
+## Para formatar todo o código automaticamente:
+  ```bash
+  npm run format
+  ```
+## Para verificar a formatação:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+  ```bash
+  npm run format:check
+  ```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Deploy
+O projeto está configurado para deploy contínuo na Vercel. Ao subir alterações para o repositório principal, o build de produção é gerado automaticamente.
